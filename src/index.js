@@ -3,6 +3,44 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import { Provider } from 'react-redux'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import thunk from 'redux-thunk';
+
+import { applyMiddleware, compose, combineReducers, createStore } from 'redux'
+
+import productsReducer from './Reducers/productsReducer';
+import userReducer from './Reducers/userReducer';
+import repoReducer from './Reducers/repoReducer';
+
+//import store from './Store/index';
+
+const allReducers = combineReducers({
+    products: productsReducer,
+    user: userReducer,
+    repo: repoReducer
+});
+
+const allStoreEnhancers = compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension && window.devToolsExtension()
+
+);
+
+
+const store = createStore(
+    allReducers,
+    {
+    products: [{name: 'Galaxy'}],
+    user: null,
+    repo: null
+    },
+    allStoreEnhancers
+);
+
+
+
+
+
+ReactDOM.render(<Provider store = {store}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
