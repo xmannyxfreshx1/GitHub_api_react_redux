@@ -1,4 +1,4 @@
-import { UPDATE_REPO } from "../Actions/repoActions";
+import { UPDATE_REPO } from '../Actions/repoActions';
 
 export default function repoReducer(state = null, {type, payload}) {
     switch (type){

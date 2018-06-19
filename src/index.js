@@ -12,8 +12,10 @@ import { applyMiddleware, compose, combineReducers, createStore } from 'redux'
 import userReducer from './Reducers/userReducer';
 import repoReducer from './Reducers/repoReducer';
 
-//import store from './Store/index';
+import store from './Store/index';
 
+//import store from './Store/index';
+/*
 const allReducers = combineReducers({
     user: userReducer,
     repo: repoReducer
@@ -34,6 +36,7 @@ const store = createStore(
     },
     allStoreEnhancers
 );
+*/
 
 
 
