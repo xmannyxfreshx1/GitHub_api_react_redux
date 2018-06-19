@@ -2,6 +2,21 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {getRepo} from "../Actions/index";
 
+class Form extends Component{
+    constructor(props){
+        super(props);
+    }
+    render(){
+        return(<div>
+
+        </div>);
+    }
+}
+
+export default Form;
+
+
+/*
 const mapDispachToProps = dispatch => {
     return{
         getRepo: repos => dispatch(getRepo(repos))
@@ -42,7 +57,7 @@ const Form = connect(null, mapDispachToProps) (ConnectedForm);
 
 export default Form;
 
-/*
+
 const Form = (props) => {
     return (
         <form onSubmit={props.getUser} >

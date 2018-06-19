@@ -15,7 +15,7 @@ export function apiRequest(props) {
             const api_call = await fetch(`https://api.github.com/users/${props}`);
             const data = await api_call.json();
             console.log(data);
-            dispatch(updateRepo(data.public_repos));
+            dispatch(updateRepo(data.public_repos)); //when the api is called, this line sends the repo info to the updateRepo action which then updates the state
             console.log(props,'this is the user');
     }
     

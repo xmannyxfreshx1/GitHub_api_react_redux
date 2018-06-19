@@ -37,7 +37,9 @@ class App extends Component {
        e.preventDefault();
        this.props.onApiRequest(e.target.elements.username.value);
        this.props.onUpdateUser(e.target.elements.username.value);
+       alert(`Username submitted: ${e.target.elements.username.value}`);
    }
+
 
   render() {
       console.log(this.props);
@@ -55,7 +57,6 @@ class App extends Component {
           <form onSubmit={this.onUpdateRepo}>
               <input placeholder="Username..." style={{margin:"20px auto", display:"block"}} type="text" name="username"/>
               <button>SUBMIT</button>
-              {console.log()}
           </form>
           {this.props.repo}
       </div>
@@ -64,7 +65,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-    products: state.products,
     user: state.user,
     repo: state.repo
 });
