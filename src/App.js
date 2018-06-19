@@ -42,23 +42,13 @@ class App extends Component {
 
 
   render() {
-      console.log(this.props);
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Github API Call</h1>
         </header>
-          {/*<Form />*/}
-          {/*<DisplayRepos/>*/}
-
-          {/*{this.state.repos ? <p>The number of repos is: {this.state.repos}</p>:<p>Enter a Username to search</p>}*/}
-        {/*<input onChange={this.onUpdateUser}/>*/}
-          {this.props.user}
-          <form onSubmit={this.onUpdateRepo}>
-              <input placeholder="Username..." style={{margin:"20px auto", display:"block"}} type="text" name="username"/>
-              <button>SUBMIT</button>
-          </form>
-          {this.props.repo}
+          <Form onUpdateRepo={this.onUpdateRepo}/>
+          <DisplayRepos publicRepos={this.props.repo} currentUser={this.props.user}/>
       </div>
     );
   }

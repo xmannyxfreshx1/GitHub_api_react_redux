@@ -1,15 +1,20 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
-import {getRepo} from "../Actions/index";
+
+
 
 class Form extends Component{
     constructor(props){
         super(props);
     }
     render(){
-        return(<div>
-
-        </div>);
+        return(
+            <div>
+                <form onSubmit={this.props.onUpdateRepo}>
+                    <input placeholder="Username..." style={{margin:"20px auto", display:"block"}} type="text" name="username"/>
+                    <button>SUBMIT</button>
+                </form>
+            </div>
+        );
     }
 }
 
@@ -17,6 +22,10 @@ export default Form;
 
 
 /*
+
+this is the code I tried initially. Having the map const in app.js is more intuitive and easier to read.
+Also, this keeps the components independent of the store.
+
 const mapDispachToProps = dispatch => {
     return{
         getRepo: repos => dispatch(getRepo(repos))
